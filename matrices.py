@@ -57,7 +57,7 @@ def matriceMulti(mat1, mat2):
                 for k in range(mat1Columns):
                     sumAns[i][j] += mat1[i][k] * mat2[k][j]
     else :
-        print('INFO: Columns of matrix 1 not the same size as rows of matrix 2 INPUT MISMATCH')
+        print('INFO - INPUT MISMATCH: Columns of matrix 1 not the same size as rows of matrix 2')
 
     return sumAns
 
@@ -67,16 +67,19 @@ def matrixAddOrSubtr(mat1, mat2, mathSign) :
     mat1Columns = len(mat1[0])
     mat2Rows = len(mat2)
     mat2Columns = len(mat2[0])
- 
-    #create a array containing only zero, which is the
-    # height of mat1 and length of mat2
-    sumAns = [[0 for y in range(mat2Columns)]for x in range(mat1Columns)]
     
-    for i in range(mat1Row) :
-        for j in range(mat1Columns) :
-            # pass the numbers at mat1[i][j] and mat2[i][j] to the built in function
-            # which will add or subtract the values, depending on what is passed into function.
-            sumAns[i][j] += mathSign(mat1[i][j], mat2[i][j])
+    if mat1Row == mat2Rows and mat1Columns == mat2Columns :
+        #create a array containing only zero, which is the
+        # height of mat1 and length of mat2
+        sumAns = [[0 for y in range(mat2Columns)]for x in range(mat1Columns)]
+        
+        for i in range(mat1Row) :
+            for j in range(mat1Columns) :
+                # pass the numbers at mat1[i][j] and mat2[i][j] to the built in function
+                # which will add or subtract the values, depending on what is passed into function.
+                sumAns[i][j] += mathSign(mat1[i][j], mat2[i][j])
+    else :
+        print('INFO - INPUT MISMATCH: Matrix 1 and 2 must have the same number of rows and columns')
     return sumAns
 
 if __name__ == '__main__':
