@@ -8,13 +8,9 @@ def matriceXVector(mat, vect):
     sumAns = []
 
     if len(mat[0]) == len(vect):
-        var = 0
         for i in range(matLen):
             for j in range(vetLen):
-                #performs multiplcation of matrice and vector elements
-                var = mat[i][j] * vect[j]
-                multiAns.append(var)
-                var = 0
+                multiAns.append(mat[i][j] * vect[j])
 
         sumAns = sumOfVectorMulti(multiAns)
     else:
@@ -23,16 +19,22 @@ def matriceXVector(mat, vect):
 
 
 def matriceMulti(mat1, mat2):
+    mat1Row = len(mat1)
+    mat1Columns = len(mat1[0])
+    mat2Rows = len(mat2)
+    mat2Columns = len(mat2[0])
     #create a array containing only zero, which is the
     # height of mat1 and length of mat2
     sumAns = [[0 for y in range(len(mat2[0]))]for x in range(len(mat1[0]))]
-
-    for i in range(len(mat1)):
-        for j in range(len(mat1)):
-            for k in range(len(mat1[0])):
-                sumAns[i][j] = mat1[i][k] * mat2[k][j]
-
-    #sumAns = sumOfVectorMulti(multiAns)
+    
+    if mat1Columns == mat2Rows:
+        #https://stackoverflow.com/questions/17623876/matrix-multiplication-using-arrays
+        for i in range(mat1Row):
+            for j in range(mat2Columns):
+                for k in range(mat1Columns):
+                    sumAns[i][j] += mat1[i][k] * mat2[k][j]
+    else :
+        print('INFO: Columns of matrix 1 not the same size as rows of matrix 2 INPUT MISMATCH')
 
     return sumAns
 
