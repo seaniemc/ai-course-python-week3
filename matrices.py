@@ -1,6 +1,7 @@
 from operator import add
 from operator import sub
 
+#function mutiplys matrix and a vector
 def matriceXVector(mat, vect):
     matLen = len(mat)
     vetLen = len(vect)
@@ -41,6 +42,7 @@ def sumOfVectorMulti(multiAns):
               + 'matrice elements of lenth 2 or 3. Please check your Matrice input length ')
     return sumAns
 
+#function which mutiplys matrix's
 def matriceMulti(mat1, mat2):
     mat1Row = len(mat1)
     mat1Columns = len(mat1[0])
@@ -61,6 +63,7 @@ def matriceMulti(mat1, mat2):
 
     return sumAns
 
+# function which adds or subtracts matrix
 def matrixAddOrSubtr(mat1, mat2, mathSign) :
     sumAns = []
     if len(mat1) == len(mat2) and len(mat1[0]) == len(mat2[0]) :
