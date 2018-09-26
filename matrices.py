@@ -62,13 +62,13 @@ def matriceMulti(mat1, mat2):
     return sumAns
 
 def matrixAddOrSubtr(mat1, mat2, mathSign) :
-
-    mat1Row = len(mat1)
-    mat1Columns = len(mat1[0])
-    mat2Rows = len(mat2)
-    mat2Columns = len(mat2[0])
+    sumAns = []
+    if len(mat1) == len(mat2) and len(mat1[0]) == len(mat2[0]) :
+        mat1Row = len(mat1)
+        mat1Columns = len(mat1[0])
+        mat2Rows = len(mat2)
+        mat2Columns = len(mat2[0])
     
-    if mat1Row == mat2Rows and mat1Columns == mat2Columns :
         #create a array containing only zero, which is the
         # height of mat1 and length of mat2
         sumAns = [[0 for y in range(mat2Columns)]for x in range(mat1Columns)]
@@ -132,6 +132,11 @@ if __name__ == '__main__':
         print('False')
 
     if answerMatrixtest5 == matriceMulti(matrix1, matrix2) :
+        print('True')
+    else : 
+        print('False')
+
+    if answerMatrixtest4 == matrixAddOrSubtr(testMat1, vect1, sub) :
         print('True')
     else : 
         print('False')
